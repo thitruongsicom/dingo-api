@@ -176,16 +176,5 @@ class DingoServiceProvider extends ServiceProvider
      */
     protected function registerDocsCommand()
     {
-        $this->app->singleton(\Dingo\Api\Console\Command\Docs::class, function ($app) {
-            return new Command\Docs(
-                $app[\Dingo\Api\Routing\Router::class],
-                $app[\Dingo\Blueprint\Blueprint::class],
-                $app[\Dingo\Blueprint\Writer::class],
-                $this->config('name'),
-                $this->config('version')
-            );
-        });
-
-        $this->commands([\Dingo\Api\Console\Command\Docs::class]);
     }
 }
